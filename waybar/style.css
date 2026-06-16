@@ -1,0 +1,84 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 14px;
+}
+
+/* The Bar itself - Fully Transparent */
+
+window#waybar {
+  background: transparent;
+}
+
+/* Default style for all modules (Matching Rofi item-bg) */
+
+#workspaces,
+#clock,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#tray,
+#custom-arch {
+  background-color: #1a1b26; /* Your Rofi item-bg */
+  color: #e0def4; /* Your Rofi fg-color */
+  border-radius: 12px;
+  padding: 0 15px;
+  margin: 5px 3px;
+  border: 1px solid #89b4fa;
+}
+
+/* Arch Icon - Keeping your favorite color */
+
+#custom-arch {
+  color: #89b4fa;
+  font-size: 18px;
+}
+
+/* Workspaces Styles */
+
+#workspaces button {
+  padding: 0 5px;
+  color: #565f89; /* Your Rofi fgp-color */
+}
+
+#workspaces button.active {
+  color: #89b4fa; /* Your Sapphire blue */
+}
+
+#workspaces button:hover {
+  background: rgba(137, 180, 250, 0.1);
+  border-radius: 8px;
+}
+
+/* Clock - Center focus */
+
+#clock {
+  font-weight: bold;
+  color: #e0def4;
+}
+
+/* Specific module colors to keep the Cyber feel */
+
+#pulseaudio {
+  color: #89b4fa;
+}
+
+#network {
+  color: #4fd6be;
+}
+
+#cpu {
+  color: #f5c2e7;
+}
+
+#memory {
+  color: #fab387;
+}
+
+/* System Tray */
+
+#tray {
+  padding: 0 10px;
+}
