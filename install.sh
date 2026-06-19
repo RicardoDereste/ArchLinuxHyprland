@@ -99,6 +99,68 @@ cp -f waybar/style.css ~/.config/waybar/style.css
 
 echo ""
 echo "========================================"
+echo "Installing .gtkrc-2.0 configuration"
+echo "========================================"
+
+cp -f gtkrc-2.0 ~/.gtkrc-2.0
+
+echo ""
+echo "========================================"
+echo "Installing nwg-look configuration"
+echo "========================================"
+
+mkdir -p ~/.config/nwg-look
+
+cp -f nwg-look/config ~/.config/nwg-look/config
+
+echo ""
+echo "========================================"
+echo "Installing GTK-3.0 configuration"
+echo "========================================"
+
+mkdir -p ~/.config/gtk-3.0
+
+cp -f gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+
+echo ""
+echo "========================================"
+echo "Installing GTK-4.0 configuration"
+echo "========================================"
+
+mkdir -p ~/.config/gtk-4.0
+
+cp -f gtk-4.0/gtk.css ~/.config/gtk-4.0/gtk.css
+cp -f gtk-4.0/settings.ini ~/.config/gtk-4.0/settings.ini
+
+echo ""
+echo "========================================"
+echo "Installing xsettingsd configuration"
+echo "========================================"
+
+mkdir -p ~/.config/xsettingsd
+
+cp -f xsettingsd/xsettingsd.conf ~/.config/xsettingsd/xsettingsd.conf
+
+echo ""
+echo "========================================"
+echo "Installing qt5ct configuration"
+echo "========================================"
+
+mkdir -p ~/.config/qt5ct
+
+cp -f qt5ct/qt5ct.conf ~/.config/qt5ct/qt5ct.conf
+
+echo ""
+echo "========================================"
+echo "Installing qt6ct configuration"
+echo "========================================"
+
+mkdir -p ~/.config/qt6ct
+
+cp -f qt6ct/qt6ct.conf ~/.config/qt6ct/qt6ct.conf
+
+echo ""
+echo "========================================"
 echo "Installation completed successfully"
 echo "========================================"
 echo ""

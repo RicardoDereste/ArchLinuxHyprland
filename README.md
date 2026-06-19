@@ -2,7 +2,7 @@
 
 My personal Arch Linux Hyprland setup script.
 
-The goal is simple: after installing a minimal Arch Linux system, I can clone this repository and restore my complete desktop environment, applications, fonts, virtualization tools, and personal configurations with a single script.
+The goal is simple: after installing a minimal Arch Linux system, I can clone this repository and restore my complete desktop environment, applications, fonts, virtualization tools, themes, and personal configurations with a single script.
 
 ## Requirements
 
@@ -39,20 +39,23 @@ Run the installer:
 
 ### Official Packages
 
-Installs all required packages using Pacman, including:
+Installs all required packages using Pacman.
 
 #### Desktop Environment
 
 - Hyprland
 - Hyprlock
 - Hypridle
+- Hyprcursor
 - Hyprpaper
 - Hyprpicker
 - Waybar
 - Kitty
 - Rofi
 - Dolphin
+- Dolphin Plugins
 - Dunst
+- SDDM
 
 #### Multimedia
 
@@ -74,7 +77,6 @@ Installs all required packages using Pacman, including:
 
 #### KDE Utilities
 
-- Dolphin Plugins
 - Ark
 - Kate
 - KCalc
@@ -102,7 +104,9 @@ Installs all required packages using Pacman, including:
 - OpenBSD Netcat
 - Libguestfs
 
-### PipeWire Configuration
+## System Configuration
+
+### PipeWire
 
 Enables:
 
@@ -110,7 +114,7 @@ Enables:
 - PipeWire Pulse
 - WirePlumber
 
-### Virtualization Configuration
+### Virtualization
 
 Enables:
 
@@ -144,7 +148,7 @@ Adds the Flathub repository:
 https://flathub.org/repo/flathub.flatpakrepo
 ```
 
-### AUR Packages
+## AUR Packages
 
 Installs Yay and the following packages:
 
@@ -161,15 +165,17 @@ Installs Yay and the following packages:
 
 ## Configuration Files
 
+The installer automatically copies and overwrites the following configuration files.
+
 ### Hyprland
 
-Copies:
+Source:
 
 ```text
 hypr/hyprland.lua
 ```
 
-To:
+Destination:
 
 ```text
 ~/.config/hypr/hyprland.lua
@@ -177,14 +183,14 @@ To:
 
 ### Kitty
 
-Copies:
+Source:
 
 ```text
 kitty/current-theme.conf
 kitty/kitty.conf
 ```
 
-To:
+Destination:
 
 ```text
 ~/.config/kitty/
@@ -192,17 +198,116 @@ To:
 
 ### Waybar
 
-Copies:
+Source:
 
 ```text
 waybar/config.jsonc
 waybar/style.css
 ```
 
-To:
+Destination:
 
 ```text
 ~/.config/waybar/
+```
+
+### NWG-Look
+
+Source:
+
+```text
+nwg-look/config
+```
+
+Destination:
+
+```text
+~/.config/nwg-look/config
+```
+
+### GTK 2
+
+Source:
+
+```text
+gtkrc-2.0
+```
+
+Destination:
+
+```text
+~/.gtkrc-2.0
+```
+
+### GTK 3
+
+Source:
+
+```text
+gtk-3.0/settings.ini
+```
+
+Destination:
+
+```text
+~/.config/gtk-3.0/settings.ini
+```
+
+### GTK 4
+
+Source:
+
+```text
+gtk-4.0/settings.ini
+gtk-4.0/gtk.css
+```
+
+Destination:
+
+```text
+~/.config/gtk-4.0/
+```
+
+### XSettingsd
+
+Source:
+
+```text
+xsettingsd/xsettingsd.conf
+```
+
+Destination:
+
+```text
+~/.config/xsettingsd/xsettingsd.conf
+```
+
+### Qt5ct
+
+Source:
+
+```text
+qt5ct/qt5ct.conf
+```
+
+Destination:
+
+```text
+~/.config/qt5ct/qt5ct.conf
+```
+
+### Qt6ct
+
+Source:
+
+```text
+qt6ct/qt6ct.conf
+```
+
+Destination:
+
+```text
+~/.config/qt6ct/qt6ct.conf
 ```
 
 Existing files are overwritten automatically.
@@ -213,14 +318,28 @@ Existing files are overwritten automatically.
 ArchLinuxHyprland/
 ├── install.sh
 ├── README.md
+├── gtkrc-2.0
 ├── hypr/
 │   └── hyprland.lua
 ├── kitty/
 │   ├── current-theme.conf
 │   └── kitty.conf
-└── waybar/
-    ├── config.jsonc
-    └── style.css
+├── waybar/
+│   ├── config.jsonc
+│   └── style.css
+├── nwg-look/
+│   └── config
+├── gtk-3.0/
+│   └── settings.ini
+├── gtk-4.0/
+│   ├── gtk.css
+│   └── settings.ini
+├── xsettingsd/
+│   └── xsettingsd.conf
+├── qt5ct/
+│   └── qt5ct.conf
+└── qt6ct/
+    └── qt6ct.conf
 ```
 
 ## After Installation
