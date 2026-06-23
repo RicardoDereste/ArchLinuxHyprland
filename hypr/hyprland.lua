@@ -32,6 +32,7 @@ local terminal    = "kitty"
 local fileManager = "dolphin"
 local menu        = "rofi -show drun"
 local browser     = "brave"
+local textEditor  = "kate"
 
 
 -------------------
@@ -282,9 +283,10 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + ALT + SPACE", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + K", hl.dsp.exec_cmd(textEditor))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser .. " --enable-features-UseOzonePlatform --ozone-platform=wayland"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"))
-hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("pkill waybar || waybar"))
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.exec_cmd("pkill waybar || waybar"))
 
 -- Control Tiling
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only

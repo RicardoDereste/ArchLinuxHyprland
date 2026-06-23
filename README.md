@@ -2,7 +2,7 @@
 
 My personal Arch Linux Hyprland setup script.
 
-The goal is simple: after installing a minimal Arch Linux system, I can clone this repository and restore my complete desktop environment, applications, fonts, virtualization tools, themes, and personal configurations with a single script.
+The goal is simple: after installing a minimal Arch Linux system, I can clone this repository and restore my complete desktop environment, applications, fonts, virtualization tools, themes, shell configuration, SDDM customization, and personal configurations with a single script.
 
 ## Requirements
 
@@ -96,13 +96,19 @@ Installs all required packages using Pacman.
 
 #### Virtualization
 
-- QEMU
+- QEMU Full
 - Virt-Manager
 - Virt-Viewer
 - DNSMasq
 - VDE2
 - OpenBSD Netcat
 - Libguestfs
+
+#### SDDM Dependencies
+
+- Qt6 SVG
+- Qt6 Virtual Keyboard
+- Qt6 Multimedia FFmpeg
 
 ## System Configuration
 
@@ -162,10 +168,49 @@ Installs Yay and the following packages:
 - QView
 - Qt5ct KDE
 - Qt6ct KDE
+- SilentSDDM Theme
+
+## Shell Configuration
+
+The installer copies a custom Bash configuration that includes:
+
+- Custom Arch Linux prompt
+- Git branch integration
+- Fastfetch on startup
+- Personal aliases
+- Personal shell settings
+
+### Bash
+
+Source:
+
+```text
+bashrc
+```
+
+Destination:
+
+```text
+~/.bashrc
+```
 
 ## Configuration Files
 
 The installer automatically copies and overwrites the following configuration files.
+
+### Bash
+
+Source:
+
+```text
+bashrc
+```
+
+Destination:
+
+```text
+~/.bashrc
+```
 
 ### Hyprland
 
@@ -310,6 +355,62 @@ Destination:
 ~/.config/qt6ct/qt6ct.conf
 ```
 
+### SDDM
+
+Source:
+
+```text
+sddm/sddm.conf
+```
+
+Destination:
+
+```text
+/etc/sddm.conf
+```
+
+### SilentSDDM Background
+
+Source:
+
+```text
+sddm/ArchLinux.png
+```
+
+Destination:
+
+```text
+/usr/share/sddm/themes/silent/backgrounds/
+```
+
+### SilentSDDM Configuration
+
+Source:
+
+```text
+sddm/default.conf
+```
+
+Destination:
+
+```text
+/usr/share/sddm/themes/silent/configs/default.conf
+```
+
+### User Profile Picture
+
+Source:
+
+```text
+sddm/ArchUser.png
+```
+
+Destination:
+
+```text
+~/.face.icon
+```
+
 Existing files are overwritten automatically.
 
 ## Repository Structure
@@ -318,6 +419,7 @@ Existing files are overwritten automatically.
 ArchLinuxHyprland/
 ├── install.sh
 ├── README.md
+├── bashrc
 ├── gtkrc-2.0
 ├── hypr/
 │   └── hyprland.lua
@@ -338,8 +440,13 @@ ArchLinuxHyprland/
 │   └── xsettingsd.conf
 ├── qt5ct/
 │   └── qt5ct.conf
-└── qt6ct/
-    └── qt6ct.conf
+├── qt6ct/
+│   └── qt6ct.conf
+└── sddm/
+    ├── sddm.conf
+    ├── default.conf
+    ├── ArchLinux.png
+    └── ArchUser.png
 ```
 
 ## After Installation

@@ -6,7 +6,7 @@ echo "========================================"
 echo "Installing official Arch Linux packages"
 echo "========================================"
 
-sudo pacman -S --noconfirm pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly ffmpeg hyprland hyprlock hypridle hyprcursor hyprpaper hyprpicker waybar kitty rofi-wayland dolphin dolphin-plugins ark kio-admin polkit-kde-agent qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk dunst cliphist mpv pavucontrol xdg-user-dirs-gtk ttf-font-awesome ttf-jetbrains-mono-nerd ttf-opensans noto-fonts ttf-droid ttf-roboto fastfetch breeze breeze5 breeze-gtk papirus-icon-theme nwg-look kde-cli-tools archlinux-xdg-menu sddm nano htop kate kcalc libreoffice-fresh qbittorrent steam qemu-full virt-manager virt-viewer dnsmasq vde2 openbsd-netcat libguestfs discover flatpak
+sudo pacman -S --noconfirm pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly ffmpeg hyprland hyprlock hypridle hyprcursor hyprpaper hyprpicker waybar kitty rofi-wayland dolphin dolphin-plugins ark kio-admin polkit-kde-agent qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk dunst cliphist mpv pavucontrol xdg-user-dirs-gtk ttf-font-awesome ttf-jetbrains-mono-nerd ttf-opensans noto-fonts ttf-droid ttf-roboto fastfetch breeze breeze5 breeze-gtk papirus-icon-theme nwg-look kde-cli-tools archlinux-xdg-menu sddm nano htop kate kcalc libreoffice-fresh qbittorrent steam qemu-full virt-manager virt-viewer dnsmasq vde2 openbsd-netcat libguestfs discover flatpak qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
 
 echo ""
 echo "========================================"
@@ -66,7 +66,14 @@ echo "========================================"
 echo "Installing AUR packages"
 echo "========================================"
 
-yay -S --noconfirm hyprshot wlogout qview visual-studio-code-bin brave-bin qt5ct-kde qt6ct-kde waypaper swww mpvpaper
+yay -S --noconfirm hyprshot wlogout qview visual-studio-code-bin brave-bin qt5ct-kde qt6ct-kde waypaper swww mpvpaper sddm-silent-theme
+
+echo ""
+echo "========================================"
+echo "Installing .bashrc configuration"
+echo "========================================"
+
+cp -f bashrc ~/.bashrc
 
 echo ""
 echo "========================================"
@@ -158,6 +165,16 @@ echo "========================================"
 mkdir -p ~/.config/qt6ct
 
 cp -f qt6ct/qt6ct.conf ~/.config/qt6ct/qt6ct.conf
+
+echo ""
+echo "========================================"
+echo "Installing SDDM configuration"
+echo "========================================"
+
+sudo cp -f sddm/sddm.conf /etc/sddm.conf
+sudo cp -f sddm/ArchLinux.png /usr/share/sddm/themes/silent/backgrounds/
+sudo cp -f sddm/default.conf /usr/share/sddm/themes/silent/configs/default.conf
+cp -f sddm/ArchUser.png ~/.face.icon
 
 echo ""
 echo "========================================"
