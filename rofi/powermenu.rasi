@@ -1,0 +1,64 @@
+configuration {
+    show-icons: false;
+    prompt: " 󰐥 Power Menu ";
+}
+
+@theme "/dev/null"
+
+* {
+    bg-col: rgba(30, 30, 46, 0.7);
+    bg-selected: rgba(137, 180, 250, 0.5);
+    blue: #89b4fa;
+    fg-col: #cdd6f4;
+    fg-selected: #ffffff;
+    background-color: transparent;
+    text-color: @fg-col;
+    margin: 0;
+    padding: 0;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+window {
+    height: 300px;
+    width: 400px;
+    background-color: @bg-col;
+    border: 2px solid;
+    border-color: @blue;
+    border-radius: 15px;
+    location: center;
+    anchor: center;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+mainbox {
+    children: [listview];
+    padding: 20px;
+}
+
+listview {
+    border: 0px;
+    padding: 10px;
+    columns: 1;
+    lines: 5;
+    fixed-height: true;
+    spacing: 10px;
+}
+
+element {
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    font: "JetBrainsMono Nerd Font 14";
+}
+
+element selected {
+    background-color: @bg-selected;
+    text-color: @fg-selected;
+    border: 1px solid;
+    border-color: @blue;
+}

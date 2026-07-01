@@ -105,8 +105,8 @@ hl.env("OZONE_PLATFORM", "wayland")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in  = 5,
-        gaps_out = 10,
+        gaps_in  = 4,
+        gaps_out = 5,
 
         border_size = 2,
 
@@ -280,6 +280,7 @@ local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close()) -- clo
 
 -- Application Bindings
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("~/.config/rofi/powermenu.sh"))
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + ALT + SPACE", hl.dsp.exec_cmd(menu))

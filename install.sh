@@ -6,7 +6,7 @@ echo "========================================"
 echo "Installing official Arch Linux packages"
 echo "========================================"
 
-sudo pacman -S --noconfirm pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly ffmpeg hyprland hyprlock hypridle hyprcursor hyprpaper hyprpicker waybar kitty rofi-wayland dolphin dolphin-plugins ark kio-admin polkit-kde-agent qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk dunst cliphist mpv pavucontrol xdg-user-dirs-gtk ttf-font-awesome ttf-jetbrains-mono-nerd ttf-opensans noto-fonts ttf-droid ttf-roboto fastfetch breeze breeze5 breeze-gtk papirus-icon-theme nwg-look kde-cli-tools archlinux-xdg-menu sddm nano htop kate kcalc libreoffice-fresh qbittorrent steam qemu-full virt-manager virt-viewer dnsmasq vde2 openbsd-netcat libguestfs discover flatpak qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
+sudo pacman -S --noconfirm pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly ffmpeg hyprland hyprlock hypridle hyprcursor hyprpaper hyprpicker waybar kitty rofi-wayland dolphin dolphin-plugins ark kio-admin polkit-kde-agent qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk dunst cliphist mpv pavucontrol xdg-user-dirs-gtk ttf-font-awesome ttf-jetbrains-mono-nerd ttf-opensans noto-fonts ttf-droid ttf-roboto fastfetch breeze breeze5 breeze-gtk papirus-icon-theme nwg-look kde-cli-tools archlinux-xdg-menu sddm nano htop kate kcalc libreoffice-fresh qbittorrent steam qemu-full virt-manager virt-viewer dnsmasq vde2 openbsd-netcat libguestfs discover flatpak qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg linux-headers nvidia-open nvidia-utils lib32-nvidia-utils accountsservice
 
 echo ""
 echo "========================================"
@@ -52,13 +52,9 @@ echo "Installing yay AUR helper"
 echo "========================================"
 
 git clone https://aur.archlinux.org/yay.git
-
 cd yay
-
 makepkg -si --noconfirm
-
 cd ..
-
 rm -rf yay
 
 echo ""
@@ -81,7 +77,6 @@ echo "Installing Hyprland configuration"
 echo "========================================"
 
 mkdir -p ~/.config/hypr
-
 cp -f hypr/hyprland.lua ~/.config/hypr/hyprland.lua
 
 echo ""
@@ -90,7 +85,6 @@ echo "Installing Kitty configuration"
 echo "========================================"
 
 mkdir -p ~/.config/kitty
-
 cp -f kitty/current-theme.conf ~/.config/kitty/current-theme.conf
 cp -f kitty/kitty.conf ~/.config/kitty/kitty.conf
 
@@ -100,9 +94,19 @@ echo "Installing Waybar configuration"
 echo "========================================"
 
 mkdir -p ~/.config/waybar
-
 cp -f waybar/config.jsonc ~/.config/waybar/config.jsonc
 cp -f waybar/style.css ~/.config/waybar/style.css
+
+echo ""
+echo "========================================"
+echo "Installing rofi configuration"
+echo "========================================"
+
+mkdir -p ~/.config/rofi
+cp -f rofi/config.rasi ~/.config/rofi/config.rasi
+cp -f rofi/powermenu.rasi ~/.config/rofi/powermenu.rasi
+cp -f rofi/powermenu.sh ~/.config/rofi/powermenu.sh
+chmod +x ~/.config/rofi/powermenu.sh
 
 echo ""
 echo "========================================"
@@ -117,7 +121,6 @@ echo "Installing nwg-look configuration"
 echo "========================================"
 
 mkdir -p ~/.config/nwg-look
-
 cp -f nwg-look/config ~/.config/nwg-look/config
 
 echo ""
@@ -126,7 +129,6 @@ echo "Installing GTK-3.0 configuration"
 echo "========================================"
 
 mkdir -p ~/.config/gtk-3.0
-
 cp -f gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
 
 echo ""
@@ -135,7 +137,6 @@ echo "Installing GTK-4.0 configuration"
 echo "========================================"
 
 mkdir -p ~/.config/gtk-4.0
-
 cp -f gtk-4.0/gtk.css ~/.config/gtk-4.0/gtk.css
 cp -f gtk-4.0/settings.ini ~/.config/gtk-4.0/settings.ini
 
@@ -145,7 +146,6 @@ echo "Installing xsettingsd configuration"
 echo "========================================"
 
 mkdir -p ~/.config/xsettingsd
-
 cp -f xsettingsd/xsettingsd.conf ~/.config/xsettingsd/xsettingsd.conf
 
 echo ""
@@ -154,7 +154,6 @@ echo "Installing qt5ct configuration"
 echo "========================================"
 
 mkdir -p ~/.config/qt5ct
-
 cp -f qt5ct/qt5ct.conf ~/.config/qt5ct/qt5ct.conf
 
 echo ""
@@ -163,8 +162,19 @@ echo "Installing qt6ct configuration"
 echo "========================================"
 
 mkdir -p ~/.config/qt6ct
-
 cp -f qt6ct/qt6ct.conf ~/.config/qt6ct/qt6ct.conf
+
+echo ""
+echo "========================================"
+echo "Installing nvidia configuration"
+echo "========================================"
+
+sudo cp -f nvidia/grub /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo cp -f nvidia/mkinitcpio.conf /etc/mkinitcpio.conf
+sudo mkinitcpio -P
+sudo mkdir -p /etc/pacman.d/hooks
+sudo cp -f nvidia/nvidia.hook /etc/pacman.d/hooks/nvidia.hook
 
 echo ""
 echo "========================================"
@@ -174,7 +184,13 @@ echo "========================================"
 sudo cp -f sddm/sddm.conf /etc/sddm.conf
 sudo cp -f sddm/ArchLinux.png /usr/share/sddm/themes/silent/backgrounds/
 sudo cp -f sddm/default.conf /usr/share/sddm/themes/silent/configs/default.conf
-cp -f sddm/ArchUser.png ~/.face.icon
+sudo mkdir -p /var/lib/AccountsService/icons
+sudo cp -f sddm/ArchUser.png /var/lib/AccountsService/icons/$USER
+sudo mkdir -p /var/lib/AccountsService/users
+sudo tee /var/lib/AccountsService/users/$USER > /dev/null <<EOF
+[User]
+Icon=/var/lib/AccountsService/icons/$USER
+EOF
 
 echo ""
 echo "========================================"

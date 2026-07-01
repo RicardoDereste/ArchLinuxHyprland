@@ -69,6 +69,7 @@ Installs all required packages using Pacman.
 #### Fonts
 
 - JetBrains Mono Nerd Font
+- Symbols Nerd Font Mono
 - Font Awesome
 - Noto Fonts
 - Droid Fonts
@@ -111,6 +112,14 @@ Installs all required packages using Pacman.
 - Qt6 Multimedia FFmpeg
 
 ## System Configuration
+
+### NVidia
+
+Adds the files:
+
+- grub
+- mkinitcpio.conf
+- nvidia.hook
 
 ### PipeWire
 
@@ -180,238 +189,9 @@ The installer copies a custom Bash configuration that includes:
 - Personal aliases
 - Personal shell settings
 
-### Bash
-
-Source:
-
-```text
-bashrc
-```
-
-Destination:
-
-```text
-~/.bashrc
-```
-
 ## Configuration Files
 
-The installer automatically copies and overwrites the following configuration files.
-
-### Bash
-
-Source:
-
-```text
-bashrc
-```
-
-Destination:
-
-```text
-~/.bashrc
-```
-
-### Hyprland
-
-Source:
-
-```text
-hypr/hyprland.lua
-```
-
-Destination:
-
-```text
-~/.config/hypr/hyprland.lua
-```
-
-### Kitty
-
-Source:
-
-```text
-kitty/current-theme.conf
-kitty/kitty.conf
-```
-
-Destination:
-
-```text
-~/.config/kitty/
-```
-
-### Waybar
-
-Source:
-
-```text
-waybar/config.jsonc
-waybar/style.css
-```
-
-Destination:
-
-```text
-~/.config/waybar/
-```
-
-### NWG-Look
-
-Source:
-
-```text
-nwg-look/config
-```
-
-Destination:
-
-```text
-~/.config/nwg-look/config
-```
-
-### GTK 2
-
-Source:
-
-```text
-gtkrc-2.0
-```
-
-Destination:
-
-```text
-~/.gtkrc-2.0
-```
-
-### GTK 3
-
-Source:
-
-```text
-gtk-3.0/settings.ini
-```
-
-Destination:
-
-```text
-~/.config/gtk-3.0/settings.ini
-```
-
-### GTK 4
-
-Source:
-
-```text
-gtk-4.0/settings.ini
-gtk-4.0/gtk.css
-```
-
-Destination:
-
-```text
-~/.config/gtk-4.0/
-```
-
-### XSettingsd
-
-Source:
-
-```text
-xsettingsd/xsettingsd.conf
-```
-
-Destination:
-
-```text
-~/.config/xsettingsd/xsettingsd.conf
-```
-
-### Qt5ct
-
-Source:
-
-```text
-qt5ct/qt5ct.conf
-```
-
-Destination:
-
-```text
-~/.config/qt5ct/qt5ct.conf
-```
-
-### Qt6ct
-
-Source:
-
-```text
-qt6ct/qt6ct.conf
-```
-
-Destination:
-
-```text
-~/.config/qt6ct/qt6ct.conf
-```
-
-### SDDM
-
-Source:
-
-```text
-sddm/sddm.conf
-```
-
-Destination:
-
-```text
-/etc/sddm.conf
-```
-
-### SilentSDDM Background
-
-Source:
-
-```text
-sddm/ArchLinux.png
-```
-
-Destination:
-
-```text
-/usr/share/sddm/themes/silent/backgrounds/
-```
-
-### SilentSDDM Configuration
-
-Source:
-
-```text
-sddm/default.conf
-```
-
-Destination:
-
-```text
-/usr/share/sddm/themes/silent/configs/default.conf
-```
-
-### User Profile Picture
-
-Source:
-
-```text
-sddm/ArchUser.png
-```
-
-Destination:
-
-```text
-~/.face.icon
-```
-
-Existing files are overwritten automatically.
+The installer automatically copies and overwrites all the configuration files.
 
 ## Repository Structure
 
@@ -429,6 +209,14 @@ ArchLinuxHyprland/
 ├── waybar/
 │   ├── config.jsonc
 │   └── style.css
+├── rofi/
+│   ├── config.rasi
+│   ├── powermenu.rasi
+│   └── powermenu.sh
+├── nvidia/
+│   ├── grub
+│   ├── mkinitcpio.conf
+│   └── nvidia.hook
 ├── nwg-look/
 │   └── config
 ├── gtk-3.0/
@@ -460,5 +248,3 @@ reboot
 ## Notes
 
 This is my personal Arch Linux setup and will continue to evolve over time.
-
-Current version: 1.0
