@@ -64,7 +64,14 @@
   },
 
   "clock": {
-    "format": "󰥔 {:%H:%M | %d/%m}"
+    "format": "󰥔 {:%H:%M | %d/%m}",
+    "tooltip-format": "<tt><big>{calendar}</big></tt>",
+    "calendar": {
+      "format": {
+        "today": "<span color='#89b4fa'><b>{}</b></span>"
+      }
+    },
+    "on-click": "exec brave --app=https://calendar.google.com"
   },
 
   "pulseaudio": {
